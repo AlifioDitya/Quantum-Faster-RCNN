@@ -1,11 +1,11 @@
-Faster R-CNN Implementation in Pytorch
+Quantum Faster R-CNN Implementation in Pytorch
 ========
 
-This repository implements [Faster R-CNN](https://arxiv.org/abs/1506.01497) with training, inference and map evaluation in PyTorch.
-The aim was to create a simple implementation based on PyTorch faster r-cnn codebase and to get rid of all the abstractions and make the implementation easy to understand.
+This repository implements [Faster R-CNN](https://arxiv.org/abs/1506.01497) with training, inference and map evaluation in PyTorch, along with integration of quantum circuits in the RoI Head using PennyLane.
+The aim was to create a simple implementation based on PyTorch faster r-cnn codebase and to integrate it with quantum computing principles.
 
 The implementation caters to batch size of 1 only and uses roi pooling on single scale feature map.
-The repo is meant to train faster r-cnn on voc dataset. Specifically I trained on VOC 2007 dataset.
+The repo is meant to train faster r-cnn on voc dataset.
 
 
 ## Sample Output by training Faster R-CNN on VOC 2007 dataset 
@@ -16,6 +16,17 @@ Ground Truth(Left) | Prediction(right)
 </br>
 <img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/39f095d3-8f50-4cd7-89cb-cee655cfa76d" width="300">
 <img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/2860bb29-3691-419a-b436-0d67f08d82e0" width="300">
+
+# Quickstart
+* Create a new conda environment with python 3.11.10 then run below commands
+* ```git clone https://github.com/explainingai-code/FasterRCNN-PyTorch.git```
+* ```cd FasterRCNN-PyTorch```
+* ```pip install -r requirements.txt```
+* For training/inference use the below commands passing the desired configuration file as the config argument . 
+* ```python -m tools.train``` for training Faster R-CNN on voc dataset
+* ```python -m tools.infer --evaluate False --infer_samples True``` for generating inference predictions
+* ```python -m tools.infer --evaluate True --infer_samples False``` for evaluating on test dataset
+* For quickstarting, run the notebook `quantum-faster-rcnn-on-voc-2007.ipynb` in the root directory of the repo.
 
 ## Data preparation
 For setting up the VOC 2007 dataset:
@@ -88,16 +99,6 @@ This repo has some differences from actual Faster RCNN paper.
 * To use a different backbone, make the change [here](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/model/faster_rcnn.py#L748) and also change `backbone_out_channels` in config
 * To use hard negative mining change `roi_low_bg_iou` to say 0.1(this will ignore proposals with < 0.1 iou)
 * To use gradient accumulation change `acc_steps` in config to > 1
-
-# Quickstart
-* Create a new conda environment with python 3.8 then run below commands
-* ```git clone https://github.com/explainingai-code/FasterRCNN-PyTorch.git```
-* ```cd FasterRCNN-PyTorch```
-* ```pip install -r requirements.txt```
-* For training/inference use the below commands passing the desired configuration file as the config argument . 
-* ```python -m tools.train``` for training Faster R-CNN on voc dataset
-* ```python -m tools.infer --evaluate False --infer_samples True``` for generating inference predictions
-* ```python -m tools.infer --evaluate True --infer_samples False``` for evaluating on test dataset
 
 ## Using torchvision FasterRCNN 
 * For training/inference using torchvision faster rcnn codebase, use the below commands passing the desired configuration file as the config argument.
