@@ -19,7 +19,6 @@ Ground Truth(Left) | Prediction(right)
 
 # Quickstart
 * Create a new conda environment with python 3.11.10 then run below commands
-* ```git clone https://github.com/explainingai-code/FasterRCNN-PyTorch.git```
 * ```cd FasterRCNN-PyTorch```
 * ```pip install -r requirements.txt```
 * For training/inference use the below commands passing the desired configuration file as the config argument . 
