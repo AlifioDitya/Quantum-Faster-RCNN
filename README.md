@@ -189,7 +189,7 @@ else:
     torch.nn.init.normal_(self.bbox_reg_layer.weight, std=0.001)
     torch.nn.init.constant_(self.bbox_reg_layer.bias, 0)
 ``` 
-You can disable the quantum integration by setting the `quantum_head` integration to `False`.
+You can disable the quantum integration by setting the `quantum_head` configuration to `False`.
 
 ## Using torchvision FasterRCNN 
 * For training/inference using torchvision faster rcnn codebase, use the below commands passing the desired configuration file as the config argument.
