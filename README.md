@@ -1,7 +1,7 @@
 Quantum Faster R-CNN Implementation in Pytorch
 ========
 
-This repository implements [Faster R-CNN](https://arxiv.org/abs/1506.01497) with training, inference and map evaluation in PyTorch, along with integration of quantum circuits in the RoI Head using PennyLane.
+This repository implements [Faster R-CNN](https://arxiv.org/abs/1506.01497) with training, inference and map evaluation in PyTorch, along with integration of quantum circuits in the RoI Head using PennyLane. The implementation of the base classical Faster R-CNN model is attributed to ExplainingAI's YouTube video [here](https://youtu.be/itjQT-gFQBY?si=W0tf764ipKOkqNP6).
 The aim was to create a simple implementation based on PyTorch faster r-cnn codebase and to integrate it with quantum computing principles.
 
 The implementation caters to batch size of 1 only and uses roi pooling on single scale feature map.
